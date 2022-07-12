@@ -49,4 +49,28 @@ public class Hogwarts {
     public void setTeleportRange(int teleportRange) {
         this.teleportRange = teleportRange;
     }
+
+    public static void getBestStudent(String lastNameA, String lastNameB, Hogwarts [] students) {
+        String studentA = null;
+        String studentB = null;
+        int pointsA = 0;
+        int pointsB = 0;
+        for (int i = 0; i < students.length; i++) {
+            Hogwarts hogwarts = students[i];
+            if (lastNameA.equals(hogwarts.getLastName())) {
+                studentA = hogwarts.getFirstName() + " " + hogwarts.getLastName();
+                pointsA = hogwarts.getMagicPower() + hogwarts.getTeleportRange();
+            }
+            if (lastNameB.equals(hogwarts.getLastName())) {
+                studentB = hogwarts.getFirstName() + " " + hogwarts.getLastName();
+                pointsB = hogwarts.getMagicPower() + hogwarts.getTeleportRange();
+            };
+        }
+        System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
+        if (pointsA > pointsB) {
+            System.out.println(" победу одержал: " + studentA);
+        } else {
+            System.out.println(" победу одержал: " + studentB);
+        }
+    }
 }

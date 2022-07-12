@@ -35,20 +35,29 @@ public class Gryffindor extends Hogwarts{
     public void setNobility(int nobility) {
         this.nobility = nobility;
     }
-    public static void getBestStudent(Gryffindor[] gryffindors) {
-        String bestStudent = null;
-        int points;
-        int bestPoints = 0;
+    public static void getBestStudent(String lastNameA, String lastNameB ,Gryffindor[] gryffindors) {
+        String studentA = null;
+        String studentB = null;
+        int pointsA = 0;
+        int pointsB = 0;
         for (int i = 0; i < gryffindors.length; i++) {
             Gryffindor gryffindor = gryffindors[i];
-            points = gryffindor.getMagicPower() + gryffindor.getTeleportRange() + gryffindor.getBravery() +
+            if (lastNameA.equals(gryffindor.getLastName())) {
+                studentA = gryffindor.getFirstName() + " " + gryffindor.getLastName();
+                pointsA = gryffindor.getMagicPower() + gryffindor.getTeleportRange() + gryffindor.getBravery() +
                     gryffindor.getHonesty() + gryffindor.getNobility();
-            if (points > bestPoints) {
-                bestPoints = points;
-                bestStudent = gryffindor.getFirstName() + " " + gryffindor.getLastName();
             }
-            points = 0;
+            if (lastNameB.equals(gryffindor.getLastName())) {
+                studentB = gryffindor.getFirstName() + " " + gryffindor.getLastName();
+                pointsB = gryffindor.getMagicPower() + gryffindor.getTeleportRange() + gryffindor.getBravery() +
+                        gryffindor.getHonesty() + gryffindor.getNobility();
+            };
         }
-        System.out.println("Самый сильный студент Гриффиндора: " + bestStudent);
+        System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
+        if (pointsA > pointsB) {
+            System.out.println(" победу одержал: " + studentA);
+        } else {
+            System.out.println(" победу одержал: " + studentB);
+        }
     }
 }

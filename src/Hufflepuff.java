@@ -34,20 +34,29 @@ public class Hufflepuff extends  Hogwarts{
         this.honesty = honesty;
     }
 
-    public static void getBestStudent(Hufflepuff[] hufflepuffs) {
-        String bestStudent = null;
-        int points;
-        int bestPoints = 0;
+    public static void getBestStudent(String lastNameA, String lastNameB ,Hufflepuff[] hufflepuffs) {
+        String studentA = null;
+        String studentB = null;
+        int pointsA = 0;
+        int pointsB = 0;
         for (int i = 0; i < hufflepuffs.length; i++) {
             Hufflepuff hufflepuff = hufflepuffs[i];
-            points = hufflepuff.getMagicPower() + hufflepuff.getTeleportRange() + hufflepuff.getHardworking() +
-                    hufflepuff.getHonesty() + hufflepuff.getLoyalty();
-            if (points > bestPoints) {
-                bestPoints = points;
-                bestStudent = hufflepuff.getFirstName() + " " + hufflepuff.getLastName();
+            if (lastNameA.equals(hufflepuff.getLastName())) {
+                studentA = hufflepuff.getFirstName() + " " + hufflepuff.getLastName();
+                pointsA = hufflepuff.getMagicPower() + hufflepuff.getTeleportRange() + hufflepuff.getHardworking() +
+                        hufflepuff.getHonesty() + hufflepuff.getLoyalty();
             }
-            points = 0;
+            if (lastNameB.equals(hufflepuff.getLastName())) {
+                studentB = hufflepuff.getFirstName() + " " + hufflepuff.getLastName();
+                pointsB = hufflepuff.getMagicPower() + hufflepuff.getTeleportRange() + hufflepuff.getHardworking() +
+                        hufflepuff.getHonesty() + hufflepuff.getLoyalty();
+            };
         }
-        System.out.println("Самый сильный студент Пуффендуя: " + bestStudent);
+        System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
+        if (pointsA > pointsB) {
+            System.out.println(" победу одержал: " + studentA);
+        } else {
+            System.out.println(" победу одержал: " + studentB);
+        }
     }
 }

@@ -53,21 +53,31 @@ public class Slytherin extends Hogwarts{
     public void setAuthorityHunger(int authorityHunger) {
         this.authorityHunger = authorityHunger;
     }
-    public static void getBestStudent(Slytherin[] slytherins) {
-        String bestStudent = null;
-        int points;
-        int bestPoints = 0;
+    public static void getBestStudent(String lastNameA, String lastNameB, Slytherin[] slytherins) {
+        String studentA = null;
+        String studentB = null;
+        int pointsA = 0;
+        int pointsB = 0;
         for (int i = 0; i < slytherins.length; i++) {
             Slytherin slytherin = slytherins[i];
-            points = slytherin.getMagicPower() + slytherin.getTeleportRange() + slytherin.getTrickery() +
-                    slytherin.getResolve() + slytherin.getAmbition() + slytherin.getResourcefulness() +
-                    slytherin.getAuthorityHunger();
-            if (points > bestPoints) {
-                bestPoints = points;
-                bestStudent = slytherin.getFirstName() + " " + slytherin.getLastName();
+            if (lastNameA.equals(slytherin.getLastName())) {
+                studentA = slytherin.getFirstName() + " " + slytherin.getLastName();
+                pointsA = slytherin.getMagicPower() + slytherin.getTeleportRange() + slytherin.getTrickery() +
+                        slytherin.getResolve() + slytherin.getAmbition() + slytherin.getResourcefulness() +
+                        slytherin.getAuthorityHunger();
             }
-            points = 0;
+            if (lastNameB.equals(slytherin.getLastName())) {
+                studentB = slytherin.getFirstName() + " " + slytherin.getLastName();
+                pointsB = slytherin.getMagicPower() + slytherin.getTeleportRange() + slytherin.getTrickery() +
+                        slytherin.getResolve() + slytherin.getAmbition() + slytherin.getResourcefulness() +
+                        slytherin.getAuthorityHunger();
+            };
         }
-        System.out.println("Самый сильный студент Слизерина: " + bestStudent);
+        System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
+        if (pointsA > pointsB) {
+            System.out.println(" победу одержал: " + studentA);
+        } else {
+            System.out.println(" победу одержал: " + studentB);
+        }
     }
 }

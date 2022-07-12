@@ -50,10 +50,13 @@ public class Main {
                         Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber())
         };
         PrintService.print(gryffindors);
-        Gryffindor.getBestStudent(gryffindors);
-        Slytherin.getBestStudent(slytherins);
-        Hufflepuff.getBestStudent(hufflepuffs);
-        Ravenclaw.getBestStudent(ravenclaws);
+
+        PrintService.getStudent("Гарри", "Поттер", gryffindors);
+        Gryffindor.getBestStudent("Поттер", "Уизли", gryffindors);
+        Slytherin.getBestStudent("Малфой", "Гоил", slytherins);
+        Hufflepuff.getBestStudent("Смит", "Диггори", hufflepuffs);
+        Ravenclaw.getBestStudent("Патил", "Чанг", ravenclaws);
+        Hogwarts.getBestStudent("Поттер", "Малфой", students);
 
 
 

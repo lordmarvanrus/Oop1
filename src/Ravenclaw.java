@@ -44,20 +44,29 @@ private int creativity;
         this.creativity = creativity;
     }
 
-    public static void getBestStudent(Ravenclaw[] ravenclaws) {
-        String bestStudent = null;
-        int points;
-        int bestPoints = 0;
+    public static void getBestStudent(String lastNameA, String lastNameB ,Ravenclaw[] ravenclaws) {
+        String studentA = null;
+        String studentB = null;
+        int pointsA = 0;
+        int pointsB = 0;
         for (int i = 0; i < ravenclaws.length; i++) {
             Ravenclaw ravenclaw = ravenclaws[i];
-            points = ravenclaw.getMagicPower() + ravenclaw.getTeleportRange() + ravenclaw.getCreativity() +
-                    ravenclaw.getIntelligence() + ravenclaw.getWisdom() + ravenclaw.getWit();
-            if (points > bestPoints) {
-                bestPoints = points;
-                bestStudent = ravenclaw.getFirstName() + " " + ravenclaw.getLastName();
+            if (lastNameA.equals(ravenclaw.getLastName())) {
+                studentA = ravenclaw.getFirstName() + " " + ravenclaw.getLastName();
+                pointsA = ravenclaw.getMagicPower() + ravenclaw.getTeleportRange() + ravenclaw.getCreativity() +
+                        ravenclaw.getIntelligence() + ravenclaw.getWisdom() + ravenclaw.getWit();
             }
-            points = 0;
+            if (lastNameB.equals(ravenclaw.getLastName())) {
+                studentB = ravenclaw.getFirstName() + " " + ravenclaw.getLastName();
+                pointsB = ravenclaw.getMagicPower() + ravenclaw.getTeleportRange() + ravenclaw.getCreativity() +
+                        ravenclaw.getIntelligence() + ravenclaw.getWisdom() + ravenclaw.getWit();
+            };
         }
-        System.out.println("Самый сильный студент Когдеврана: " + bestStudent);
+        System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
+        if (pointsA > pointsB) {
+            System.out.println(" победу одержал: " + studentA);
+        } else {
+            System.out.println(" победу одержал: " + studentB);
+        }
     }
 }
