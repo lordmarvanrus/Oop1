@@ -53,31 +53,19 @@ public class Slytherin extends Hogwarts{
     public void setAuthorityHunger(int authorityHunger) {
         this.authorityHunger = authorityHunger;
     }
-    public static void getBestStudent(String lastNameA, String lastNameB, Slytherin[] slytherins) {
-        String studentA = null;
-        String studentB = null;
-        int pointsA = 0;
-        int pointsB = 0;
-        for (int i = 0; i < slytherins.length; i++) {
-            Slytherin slytherin = slytherins[i];
-            if (lastNameA.equals(slytherin.getLastName())) {
-                studentA = slytherin.getFirstName() + " " + slytherin.getLastName();
-                pointsA = slytherin.getMagicPower() + slytherin.getTeleportRange() + slytherin.getTrickery() +
-                        slytherin.getResolve() + slytherin.getAmbition() + slytherin.getResourcefulness() +
-                        slytherin.getAuthorityHunger();
-            }
-            if (lastNameB.equals(slytherin.getLastName())) {
-                studentB = slytherin.getFirstName() + " " + slytherin.getLastName();
-                pointsB = slytherin.getMagicPower() + slytherin.getTeleportRange() + slytherin.getTrickery() +
-                        slytherin.getResolve() + slytherin.getAmbition() + slytherin.getResourcefulness() +
-                        slytherin.getAuthorityHunger();
-            };
-        }
+    public void getBestSlytherinStudent(Slytherin slytherin) {
+        String studentA = slytherin.getFirstName() + " " + slytherin.getLastName();
+        String studentB = this.getFirstName() + " " + this.getLastName();
+        int pointsA = slytherin.getMagicPower() + slytherin.getTeleportRange() + points();
+        int pointsB = this.getMagicPower() + this.getTeleportRange() + this.points();
         System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
         if (pointsA > pointsB) {
             System.out.println(" победу одержал: " + studentA);
         } else {
             System.out.println(" победу одержал: " + studentB);
         }
+    }
+    private int points () {
+        return authorityHunger + resourcefulness + ambition + resolve + trickery;
     }
 }

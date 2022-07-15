@@ -34,29 +34,19 @@ public class Hufflepuff extends  Hogwarts{
         this.honesty = honesty;
     }
 
-    public static void getBestStudent(String lastNameA, String lastNameB ,Hufflepuff[] hufflepuffs) {
-        String studentA = null;
-        String studentB = null;
-        int pointsA = 0;
-        int pointsB = 0;
-        for (int i = 0; i < hufflepuffs.length; i++) {
-            Hufflepuff hufflepuff = hufflepuffs[i];
-            if (lastNameA.equals(hufflepuff.getLastName())) {
-                studentA = hufflepuff.getFirstName() + " " + hufflepuff.getLastName();
-                pointsA = hufflepuff.getMagicPower() + hufflepuff.getTeleportRange() + hufflepuff.getHardworking() +
-                        hufflepuff.getHonesty() + hufflepuff.getLoyalty();
-            }
-            if (lastNameB.equals(hufflepuff.getLastName())) {
-                studentB = hufflepuff.getFirstName() + " " + hufflepuff.getLastName();
-                pointsB = hufflepuff.getMagicPower() + hufflepuff.getTeleportRange() + hufflepuff.getHardworking() +
-                        hufflepuff.getHonesty() + hufflepuff.getLoyalty();
-            };
-        }
+    public void getBestHufflepuffStudent(Hufflepuff hufflepuff) {
+        String studentA = hufflepuff.getFirstName() + " " + hufflepuff.getLastName();
+        String studentB = this.getFirstName() + " " + this.getLastName();
+        int pointsA = hufflepuff.getMagicPower() + hufflepuff.getTeleportRange() + points();
+        int pointsB = this.getMagicPower() + this.getTeleportRange() + this.points();
         System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
         if (pointsA > pointsB) {
             System.out.println(" победу одержал: " + studentA);
         } else {
             System.out.println(" победу одержал: " + studentB);
         }
+    }
+    private int points () {
+        return honesty + loyalty + hardworking;
     }
 }

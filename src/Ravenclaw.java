@@ -44,29 +44,19 @@ private int creativity;
         this.creativity = creativity;
     }
 
-    public static void getBestStudent(String lastNameA, String lastNameB ,Ravenclaw[] ravenclaws) {
-        String studentA = null;
-        String studentB = null;
-        int pointsA = 0;
-        int pointsB = 0;
-        for (int i = 0; i < ravenclaws.length; i++) {
-            Ravenclaw ravenclaw = ravenclaws[i];
-            if (lastNameA.equals(ravenclaw.getLastName())) {
-                studentA = ravenclaw.getFirstName() + " " + ravenclaw.getLastName();
-                pointsA = ravenclaw.getMagicPower() + ravenclaw.getTeleportRange() + ravenclaw.getCreativity() +
-                        ravenclaw.getIntelligence() + ravenclaw.getWisdom() + ravenclaw.getWit();
-            }
-            if (lastNameB.equals(ravenclaw.getLastName())) {
-                studentB = ravenclaw.getFirstName() + " " + ravenclaw.getLastName();
-                pointsB = ravenclaw.getMagicPower() + ravenclaw.getTeleportRange() + ravenclaw.getCreativity() +
-                        ravenclaw.getIntelligence() + ravenclaw.getWisdom() + ravenclaw.getWit();
-            };
-        }
+    public void getBestRavenclawStudent(Ravenclaw ravenclaw) {
+        String studentA = ravenclaw.getFirstName() + " " + ravenclaw.getLastName();
+        String studentB = this.getFirstName() + " " + this.getLastName();
+        int pointsA = ravenclaw.getMagicPower() + ravenclaw.getTeleportRange() + points();
+        int pointsB = this.getMagicPower() + this.getTeleportRange() + this.points();
         System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
         if (pointsA > pointsB) {
             System.out.println(" победу одержал: " + studentA);
         } else {
             System.out.println(" победу одержал: " + studentB);
         }
+    }
+    private int points () {
+        return creativity + wisdom + wit + intelligence;
     }
 }

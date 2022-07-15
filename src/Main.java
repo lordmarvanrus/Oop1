@@ -1,64 +1,68 @@
 public class Main {
-    public static void main (String[] args) {
-        Hogwarts [] students = {
-                new Hogwarts("Гарри", "Поттер", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Гермиона", "Грейнджер", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Рон", "Уизли", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Драко", "Малфой", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Грэхэм", "Монтегрю", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Грегори", "Гоил", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Захария", "Смит", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Седрик", "Диггори", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Джастин", "Финч-Флетчли", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Чжоу", "Чанг", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Падма", "Патил", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hogwarts("Маркус", "Белби", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber())
-        };
-        Gryffindor [] gryffindors = {
-                new Gryffindor("Гарри", "Поттер", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Gryffindor("Гермиона", "Грейнджер", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Gryffindor("Рон", "Уизли", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber())
-        };
-        Slytherin [] slytherins = {
-                new Slytherin("Драко", "Малфой", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Slytherin("Грэхэм", "Монтегрю", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Slytherin("Грегори", "Гоил", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber())
-        };
-        Hufflepuff [] hufflepuffs = {
-                new Hufflepuff("Захария", "Смит", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hufflepuff("Седрик", "Диггори", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Hufflepuff("Джастин", "Финч-Флетчли", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber())
-        };
-        Ravenclaw [] ravenclaws = {
-                new Ravenclaw("Чжоу", "Чанг", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Ravenclaw("Падма", "Патил", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber()),
-                new Ravenclaw("Маркус", "Белби", Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(),
-                        Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber(), Hogwarts.getRandomNumber())
-        };
-        PrintService.print(gryffindors);
-
-        PrintService.getStudent("Гарри", "Поттер", gryffindors);
-        Gryffindor.getBestStudent("Поттер", "Уизли", gryffindors);
-        Slytherin.getBestStudent("Малфой", "Гоил", slytherins);
-        Hufflepuff.getBestStudent("Смит", "Диггори", hufflepuffs);
-        Ravenclaw.getBestStudent("Патил", "Чанг", ravenclaws);
-        Hogwarts.getBestStudent("Поттер", "Малфой", students);
-
-
+    private static Gryffindor gryffindorStudent(String firstName, String lastName) {
+        return new Gryffindor(
+                firstName,
+                lastName,
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber()
+        );
+    }
+    private static Slytherin slytherinStudent(String firstName, String lastName) {
+        return new Slytherin(
+                firstName,
+                lastName,
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber()
+        );
+    }private static Hufflepuff hufflepuffStudent(String firstName, String lastName) {
+        return new Hufflepuff(
+                firstName,
+                lastName,
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber()
+        );
+    }private static Ravenclaw ravenclawStudent(String firstName, String lastName) {
+        return new Ravenclaw(
+                firstName,
+                lastName,
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber(),
+                Hogwarts.getRandomNumber()
+        );
+    }
+    public static void main(String[] args) {
+                Gryffindor harry = gryffindorStudent("Гарри", "Поттер");
+                Gryffindor hermione = gryffindorStudent("Гермиона", "Грейнджер");
+                Gryffindor ron = gryffindorStudent("Рон", "Уизли");
+                Slytherin draco = slytherinStudent("Драко", "Малфой");
+                Slytherin graham = slytherinStudent("Грэхэм", "Монтегрю");
+                Slytherin gregory = slytherinStudent("Грегори", "Гоил");
+                Hufflepuff zechariah = hufflepuffStudent("Захария", "Смит");
+                Hufflepuff cedric = hufflepuffStudent("Седрик", "Диггори");
+                Hufflepuff justin = hufflepuffStudent("Джастин", "Финч-Флетчли");
+                Ravenclaw zhou = ravenclawStudent("Чжоу", "Чанг");
+                Ravenclaw padma = ravenclawStudent("Падма", "Патил");
+                Ravenclaw marcus = ravenclawStudent("Маркус", "Белби");
+                harry.print();
+                harry.getBestStudent(draco);
+                harry.getBestGryffindorStudent(ron);
+                draco.getBestSlytherinStudent(graham);
+                cedric.getBestHufflepuffStudent(justin);
+                zhou.getBestRavenclawStudent(marcus);
 
     }
 }

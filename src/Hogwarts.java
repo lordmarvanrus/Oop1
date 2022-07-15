@@ -50,27 +50,24 @@ public class Hogwarts {
         this.teleportRange = teleportRange;
     }
 
-    public static void getBestStudent(String lastNameA, String lastNameB, Hogwarts [] students) {
-        String studentA = null;
-        String studentB = null;
-        int pointsA = 0;
-        int pointsB = 0;
-        for (int i = 0; i < students.length; i++) {
-            Hogwarts hogwarts = students[i];
-            if (lastNameA.equals(hogwarts.getLastName())) {
-                studentA = hogwarts.getFirstName() + " " + hogwarts.getLastName();
-                pointsA = hogwarts.getMagicPower() + hogwarts.getTeleportRange();
-            }
-            if (lastNameB.equals(hogwarts.getLastName())) {
-                studentB = hogwarts.getFirstName() + " " + hogwarts.getLastName();
-                pointsB = hogwarts.getMagicPower() + hogwarts.getTeleportRange();
-            };
-        }
+    public void getBestStudent(Hogwarts hogwarts) {
+        String studentA = hogwarts.firstName + " " + hogwarts.lastName;
+        String studentB = this.firstName + " " + this.lastName;
+        int pointsA = hogwarts.magicPower + hogwarts.teleportRange;
+        int pointsB = this.magicPower + this.teleportRange;
         System.out.print("Между студентами: " + studentA + "(" + pointsA + ")" + " и " + studentB + "(" + pointsB + ")");
         if (pointsA > pointsB) {
             System.out.println(" победу одержал: " + studentA);
         } else {
             System.out.println(" победу одержал: " + studentB);
         }
+    }
+    @Override
+    public String toString() {
+        return String.format("Студент: %s; мощность заклинаний: %d; дальность трансгрессии: %d",firstName + " " + lastName,
+                magicPower, teleportRange);
+    }
+    public void print () {
+        System.out.println(this);
     }
 }
